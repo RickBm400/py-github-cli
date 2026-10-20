@@ -1,0 +1,18 @@
+[project]
+name = "terminal-github-manager"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "pygithub>=2.10.0",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+start = "terminal_github_manager.main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.0,<0.13.0"]
+build-backend = "uv_build"
