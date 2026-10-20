@@ -20,9 +20,3 @@ if __name__ == "__main__":
     main()
 
 
-def basicRequest():
-    import requests
-
-    response = requests.get("https://www.google.com")
-
-    print(f"Status Code: {response.raw}")

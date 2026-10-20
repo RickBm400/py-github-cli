@@ -4,3 +4,5 @@
 .qodo
 
 __pycache__
+
+uv.lock
