@@ -1,6 +1,7 @@
-# terminal-github-manager
+# GitSMan
 
-CLI personal para administrar repositorios remotos de GitHub desde la terminal.
+CLI personal para administrar repositorios remotos de GitHub desde la terminal
+(instalable como el comando `ghm`).
 
 ## Stack
 
@@ -23,16 +24,50 @@ uv run ghm --help
 Instalacion local como comando global (`ghm`):
 
 ```bash
-uv tool install .
-uv tool update-shell   # agrega ~/.local/bin al PATH
+uv tool install .          # instala el ejecutable ghm
+uv tool update-shell       # agrega ~/.local/bin al PATH
 ```
 
-Para actualizar o desinstalar:
+Para actualizar y desinstalar, el nombre del tool es el **paquete**
+(`terminal-github-manager`), no el ejecutable (`ghm`):
 
 ```bash
-uv tool upgrade ghm     # tras volver a ejecutar uv tool install --force .
-uv tool uninstall ghm
+uv tool install --force .                     # reinstala con los cambios del repo
+uv tool uninstall terminal-github-manager     # elimina ghm
 ```
+
+## Shell completion
+
+```bash
+ghm --install-completion   # instala el autocompletado de la shell actual
+ghm --show-completion      # imprime el script sin instalarlo
+```
+
+Ubica el script segun la shell:
+
+| Shell | Archivo generado | Cambio en la configuracion |
+|---|---|---|
+| zsh | `~/.zfunc/_ghm` | agrega `fpath+=~/.zfunc; autoload -Uz compinit; compinit` a `~/.zshrc` |
+| bash | `~/.bash_completions/ghm.sh` | agrega el `source` del script a `~/.bashrc` |
+| fish | `~/.config/fish/completions/ghm.fish` | ninguno |
+
+Para eliminar las completions:
+
+```bash
+# zsh
+rm -f ~/.zfunc/_ghm
+# borra la linea "fpath+=~/.zfunc; ..." de ~/.zshrc
+
+# bash
+rm -f ~/.bash_completions/ghm.sh
+# borra la linea "source '.../ghm.sh'" de ~/.bashrc
+
+# fish
+rm -f ~/.config/fish/completions/ghm.fish
+```
+
+Basta con borrar el script: el shell deja de ofrecer completions en la
+siguiente terminal.
 
 ## Configuration
 
