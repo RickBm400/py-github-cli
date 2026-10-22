@@ -1,4 +1,4 @@
-# GitSMan
+# terminal-github-manager
 
 CLI personal para administrar repositorios remotos de GitHub desde la terminal
 (instalable como el comando `ghm`).
