@@ -2,8 +2,6 @@ import sys
 
 from .version import get_version
 
-APP_TITLE = "GitSMan"
-
 ASCII_ART = r"""
  ██████╗ ██╗  ██╗      ███╗   ███╗ █████╗ ███╗   ██╗ █████╗  ██████╗ ███████╗██████╗ 
 ██╔════╝ ██║  ██║      ████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗
@@ -21,9 +19,6 @@ ASCII_FALLBACK = r"""
 |_| |_| |_| |_| |_| |_|  |_|  |_| |___|
 """
 
-TAGLINE = "GitHub repository manager"
-
-
 def supports_unicode() -> bool:
     encoding = getattr(sys.stdout, "encoding", None) or "ascii"
     try:
@@ -35,8 +30,8 @@ def supports_unicode() -> bool:
 
 def render_banner() -> str:
     art = ASCII_ART if supports_unicode() else ASCII_FALLBACK
-    return f"{art.strip()}\n\n{APP_TITLE} v{get_version()} - {TAGLINE}"
+    return f"{art.strip()}\n\nv{get_version()}"
 
 
 def render_version() -> str:
-    return f"{APP_TITLE} v{get_version()}"
+    return f"v{get_version()}"
