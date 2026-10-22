@@ -2,13 +2,17 @@ import sys
 
 from .version import get_version
 
+APP_TITLE = "GitSMan"
+TAGLINE = "GitHub repository manager"
+
 ASCII_ART = r"""
  ██████╗ ██╗  ██╗      ███╗   ███╗ █████╗ ███╗   ██╗ █████╗  ██████╗ ███████╗██████╗ 
 ██╔════╝ ██║  ██║      ████╗ ████║██╔══██╗████╗  ██║██╔══██╗██╔════╝ ██╔════╝██╔══██╗
 ██║  ███╗███████║█████╗██╔████╔██║███████║██╔██╗ ██║███████║██║  ███╗█████╗  ██████╔╝
 ██║   ██║██╔══██║╚════╝██║╚██╔╝██║██╔══██║██║╚██╗██║██╔══██║██║   ██║██╔══╝  ██╔══██╗
 ╚██████╔╝██║  ██║      ██║ ╚═╝ ██║██║  ██║██║ ╚████║██║  ██║╚██████╔╝███████╗██║  ██║
- ╚═════╝ ╚═╝  ╚═╝      ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝                     
+ ╚═════╝ ╚═╝  ╚═╝      ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝
+                                                                                                   
 """
 
 ASCII_FALLBACK = r"""
@@ -30,8 +34,8 @@ def supports_unicode() -> bool:
 
 def render_banner() -> str:
     art = ASCII_ART if supports_unicode() else ASCII_FALLBACK
-    return f"{art.strip()}\n\nv{get_version()}"
+    return f"{art.strip()}\n\n{APP_TITLE} v{get_version()} - {TAGLINE}"
 
 
 def render_version() -> str:
-    return f"v{get_version()}"
+    return f"{APP_TITLE} v{get_version()}"

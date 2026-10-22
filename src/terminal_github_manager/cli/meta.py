@@ -49,7 +49,7 @@ def config_command() -> None:
     """Muestra la ruta de configuracion y si existe un token guardado."""
     source = config.token_source()
     output.field_table(
-        "Configuracion",
+        banner.APP_TITLE,
         [
             ("Version", get_version()),
             ("Archivo de configuracion", str(config.config_path())),
