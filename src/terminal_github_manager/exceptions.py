@@ -33,8 +33,11 @@ class GitHubManagerError(Exception):
 class MissingTokenError(GitHubManagerError):
     def __init__(self) -> None:
         super().__init__(
-            "no se encontro la variable GH_TOKEN",
-            hint="definela en el archivo .env o en el entorno antes de ejecutar el comando",
+            "no se encontro ningun token de GitHub",
+            hint=(
+                "define GH_TOKEN, guarda el token en ~/.config/ghm/config o ejecuta "
+                "'ghm login' desde una terminal interactiva"
+            ),
         )
 
 
