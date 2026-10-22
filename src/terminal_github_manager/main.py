@@ -4,7 +4,7 @@ from .cli import meta, repos
 
 app = typer.Typer(
     name="ghm",
-    help="GitSMan: gestion de repositorios de GitHub desde la terminal.",
+    help="gestion de repositorios de GitHub desde la terminal.",
     invoke_without_command=True,
     callback=meta.root_callback,
 )
