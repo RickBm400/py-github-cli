@@ -13,6 +13,10 @@ def json(payload: object) -> None:
     console.print_json(json_module.dumps(payload))
 
 
+def raw(text: str) -> None:
+    console.print(text, markup=False, highlight=False, crop=False, soft_wrap=True)
+
+
 def field_table(title: str, rows: list[tuple[str, object]]) -> None:
     table = Table(title=title, show_header=False, title_justify="left")
     table.add_column("Campo", style="bold cyan")
