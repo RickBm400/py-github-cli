@@ -1,22 +1,15 @@
-from . import github_client as gh
+import typer
+
+app = typer.Typer(
+    name="ghm",
+    help="terminal-github-manager: gestion de repositorios de GitHub desde la terminal.",
+    no_args_is_help=True,
+)
 
 
 def main():
-    client = gh.getGithubClient()
-    repos = list(client.get_user().get_repos(affiliation="owner"))
-    print(*(repo.name for repo in reversed(repos)), sep="\n")
-
-    logRepo = client.get_user().get_repos(affiliation="owner")[1]
-    print(f"""
-    {logRepo.name} - {logRepo.language}
-    {logRepo.description}
-    {logRepo.clone_url}
-    {logRepo.created_at}
-    """)
-    client.close()
+    app()
 
 
 if __name__ == "__main__":
     main()
-
-
